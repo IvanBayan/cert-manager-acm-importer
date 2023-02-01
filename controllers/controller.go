@@ -22,6 +22,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 )
 
 type AcmCertificate struct {
@@ -80,6 +81,7 @@ func (r *CertificateReconciler) InitializeCache() {
 			}
 		} else {
 			zap.S().Error("error received", err)
+			time.Sleep(time.Second)
 		}
 	}
 }
